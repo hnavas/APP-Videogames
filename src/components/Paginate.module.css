@@ -1,0 +1,63 @@
+.container{
+  margin: 10px;
+  top: 1%;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.container ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  max-width: 400px;
+}
+
+.container li {
+  margin: 2px;
+}
+
+.selectedPage{
+  background-color:rgba(148, 148, 149, 0.909);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border: 0.5px solid white;
+}
+
+.page{
+  width: 35px;
+  height: 35px;
+  color: white;
+  border: 0.5px solid grey;
+  background-color: rgba(37, 37, 39, 0.739);
+  border-radius: none;
+}
+
+.page:hover{
+  background: white;
+  background-color: rgb(135, 131, 133);
+  cursor: pointer;
+}
+
+.btnPage {
+  width: 35px;
+  height: 35px;
+  color: white;
+  border: 0.5px solid grey;
+  background-color: rgba(37, 37, 39, 0.739);
+  border-radius: none;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.btnPage:hover {
+	background: white;
+  background-color: rgba(135, 131, 133, 0.363);
+  cursor: pointer;
+}
+
