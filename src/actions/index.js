@@ -16,7 +16,7 @@ export function getVideogames() {
 
   return async function(dispatch) {
     dispatch({type: LOADING});
-    let res = await axios.get('http://localhost:3001/videogames');
+    let res = await axios.get('/videogames');
     return dispatch({
       type : GET_VIDEOGAMES,
       payload: res.data
@@ -29,7 +29,7 @@ export function getByName(name) {
     
     try {
       dispatch({type: LOADING});
-      let res = await axios.get(`http://localhost:3001/videogames?name=${name}`);
+      let res = await axios.get(`/videogames?name=${name}`);
       return dispatch({
         type : GET_VIDEOGAME_BY_NAME,
         payload: res.data
@@ -43,7 +43,7 @@ export function getByName(name) {
 export function getById(id) {
   return async function(dispatch) {
     try {
-      let res = await axios.get(`http://localhost:3001/videogames/${id}`);
+      let res = await axios.get(`/videogames/${id}`);
       return dispatch({
         type: GET_VIDEOGAME_BY_Id,
         payload: res.data
@@ -56,7 +56,7 @@ export function getById(id) {
 
 export function getGenres() {
   return async function(dispatch) {
-    let res = await axios.get('http://localhost:3001/genres');
+    let res = await axios.get('/genres');
     return dispatch({
       type: GET_GENRES,
       payload: res.data
@@ -66,7 +66,7 @@ export function getGenres() {
 
 export function getPlatforms() {
   return async function(dispatch) {
-    let res = await axios.get('http://localhost:3001/platforms');
+    let res = await axios.get('/platforms');
     return dispatch({
       type: GET_PLATFORMS,
       payload: res.data
@@ -76,7 +76,7 @@ export function getPlatforms() {
 
 export function postVideogame(payload) {
   return async function(dispatch) {
-    let res = await axios.post('http://localhost:3001/videogames', payload);
+    let res = await axios.post('/videogames', payload);
     return res;
   }
 }
