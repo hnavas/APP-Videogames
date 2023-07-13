@@ -11,13 +11,14 @@ import s from './Home.module.css'
 export default function Home() {
 
   const dispatch = useDispatch();
-  const stateVideogames = useSelector(state => state.videogames, () => false );
+  const stateVideogames = useSelector(state => state.videogames, () => false);
   const stateGenres = useSelector(state => state.genres);
   const stateLoading = useSelector(state => state.loading);
 
 
   //PAGINADO//
   //1. Defino estados locales
+  const [ , setActualState ] = useState(stateVideogames);
   const [ actualPage, setActualPage ] = useState(1);
   const [ gamesByPage, ] = useState(15);
   //2. Declaro los indices de los games que se mostraran por pagina
@@ -51,12 +52,12 @@ export default function Home() {
 
   let handleOrderByAZ = (e) => {
     e.preventDefault();
-    dispatch(actions.orderAlphabetically(e.target.value));
+    setActualState(dispatch(actions.orderAlphabetically(e.target.value)));
     setActualPage(1);
   }
 
   let handleOrderByRating = (e) => {
-    dispatch(actions.orderByRating(e.target.value));
+    setActualState(dispatch(actions.orderByRating(e.target.value)));
     setActualPage(1);
   }
 
@@ -93,13 +94,13 @@ export default function Home() {
             </select>
 
             <select className={s.filtCenter} onChange={(e) => handleOrderByRating(e)}> 
-              <option value='' hidden >--Order by Rating--</option>
+              <option hidden >--Order by Rating--</option>
               <option value='high'>High Rating</option>
               <option value='low'>Low Rating</option>
             </select>
 
             <select className={s.filtCenter} onChange={(e) => handleFilterByStatus(e)}>
-              <option value='' selected hidden>--Filter by Status--</option>
+              <option hidden>--Filter by Status--</option>
               <option value='all'>All</option>
               <option value='created'>Created</option>
               <option value='existing'>Existing</option>
